@@ -20,7 +20,7 @@ To be able to run the project on your system you should have:
 
 ### Installation
 To install the project on your system first open the terminal, then follow the given steps and execute the commands on your terminal.
-
+ 0. Make sure you have all the prerequisites listed above installed on your system.
  1. Clone the project from GitHub:
  ``` git clone https://github.com/AbdullahAlabd/RSS-Parser```
  2. Switch to the project's directory:
@@ -31,6 +31,7 @@ To install the project on your system first open the terminal, then follow the g
 ```cp ./src/configs/config.env.example ./src/configs/config.env```
  5. Update your credentials in config.env.
  6. Finally, run the app on localhost: ```node app.js``` or using Nodemon for easier development ```npm run dev```
+ 7. To avoid any issues with Google Maps api, It's preferred to disable any ad-blocking browser extensions on the web app home page.
 
 ## Author
 * **Abdullah Alabd** - *Initial work* - [AbdullahAlabd](https://github.com/AbdullahAlabd)
