@@ -14,8 +14,8 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 To be able to run the project on your system you should have:
- - [Node 18.16.1+](https://nodejs.org/en) - A cross-platform JavaScript runtime environment.
- - [MongoDB 6.0+](https://www.mongodb.com/docs/manual/administration/install-community) - A cross-platform document-oriented database program.
+ - [Node ^18.16.1](https://nodejs.org/en/download) - A cross-platform JavaScript runtime environment.
+ - [MongoDB ^6.0](https://www.mongodb.com/docs/manual/administration/install-community) - A cross-platform document-oriented database program.
  - [Git](https://git-scm.com/downloads) - A free and open-source distributed version control system.
 
 ### Installation
