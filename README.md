@@ -4,7 +4,7 @@
 
 Simple RSS job postings parser web application using Google Maps.
 
-![[Pasted image 20230716223440.png]]
+![A Screenshot](https://i.imgur.com/mNXNnrU.png)
 
 
 ## Getting Started
