@@ -14,62 +14,108 @@
 
   <body>
     <!-- Navbar -->
-    <header class="p-3 text-bg-dark">
+    <header class="p-1 text-bg-dark">
       <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 mr-3 text-white text-decoration-none">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+        >
+          <a
+            href="/"
+            class="d-flex align-items-center mb-2 mb-lg-0 mr-3 text-white text-decoration-none"
+          >
             <h1 class="d-flex align-items-center fs-5 text-white mb-0 mr-4">
               RSS-Parser
             </h1>
           </a>
-  
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+          <ul
+            class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+          >
             <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
             <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
             <li><a href="#" class="nav-link px-2 text-white">About</a></li>
           </ul>
-
         </div>
       </div>
     </header>
-    <!-- "_id": "64b1ce7b998df41c3ccd7768",
-            "title": "Move Coordinator - Dubai, UAE",
-            "link": "http://careers.moveoneinc.com/en/uae/jobs/move-coordinator-dubai-uae-4716440/",
-            "guid": "http://careers.moveoneinc.com/en/uae/jobs/move-coordinator-dubai-uae-4716440/",
-            "description": "<p><b>Position Purpose</b></p>\r<br /><p>Serve as the single point of coordination for assigned import, export and domestic moves into and out of the local region.</p>\r<br /><p><b>Responsibilities / Duties / Function Tasks</b></p>\r<br /><p>Manage the household goods process from booking to delivery; origin to destination, import, export and domestic.</p>\r<br /><p>Counsel clients to ensure the best ongoing experience regarding their household goods shipments, pack outs, deliveries, etc.</p>\r<br /><p>Manage the expectations of both domestic and international customers.</p>\r<br /><p>Liaise with moving operations, customer service reps, sales and crew leaders in order to stay up to date on customer needs, service developments, insurance matters.</p>\r<br /><p>Attend daily planning meetings with warehouse supervisor, crew manager and Operations Manager to analyze and plan effectively.Work closely with Pricing Analyst and Quoting department to best price services and jobs for the most cost-effective solutions.</p>\r<br /><p>Confirming transport and service quotes from agents and vendors, and requesting a discount when possible.</p>\r<br /><p>Requesting and booking of export and import shipments with agents and vendors.</p>\r<br /><p>Waybill documentation for outgoing and incoming shipments</p>\r<br /><p>Checking required customs documentation for import and export shipments.</p>\r<br /><p>Monitoring documentation for incoming and outgoing shipments.</p>\r<br /><p>Closing jobs with actual cost calculations.</p>\r<br /><p>Coordinating the shipments schedule with crew leader and customs specialist.</p>\r<br /><p>Preparation of main documents for individual moves.</p>\r<br /><p>Daily update of electronic files and documents required throughout the cycle of each household goods moving service.</p>\r<br /><p>Meet or exceed service metrics and revenue capture expectations.</p>\r<br /><p>Interact professionally with other employees, customers and suppliers.</p>\r<br /><p>Work independently while understanding the necessity for communicating and coordinating work efforts with other employees and organizations.</p>\r<br /><p>Perform quality work within deadlines with or without direct supervision.</p>\r<br /><p>Liaise with the crew members and crew supervisor in order to have the deliveries/pack out's scheduled and planned in advance.</p><h2>Job Details</h2>\n\t<div class=\"chart-box\">\n\t<table  width=\"100%\" class=\"chart\">\n\t<tbody>\n\t<tr class=\"a\" valign=\"top\">\n<td class=\"th\" width=\"25%\"><b>Posted Date:</b></td>\n<td width=\"75%\">2023-07-03</td>\n</tr>\n\n<tr class=\"b\" valign=\"top\">\n<td class=\"th\" width=\"25%\"><b>Job Location:</b></td>\n<td width=\"75%\">Dubai, United Arab Emirates</td>\n</tr>\n\n<tr class=\"a\" valign=\"top\">\n<td class=\"th\" width=\"25%\"><b>Job Role:</b></td>\n<td width=\"75%\">Other</td>\n</tr>\n\n\n\t</tbody>\n\t</table>\n\t</div><h2>Preferred Candidate</h2>\n\t<div class=\"chart-box\">\n\t<table  width=\"100%\" class=\"chart\">\n\t<tbody>\n\t<tr class=\"a\" valign=\"top\">\n<td class=\"th\" width=\"25%\"><b>Career Level:</b></td>\n<td width=\"75%\">Mid Career</td>\n</tr>\n\n<tr class=\"b\" valign=\"top\">\n<td class=\"th\" width=\"25%\"><b>Degree:</b></td>\n<td width=\"75%\">Bachelor's degree</td>\n</tr>\n\n\n\t</tbody>\n\t</table>\n\t</div>",
-            "category": "Other Business Support Services",
-            "division": "Moving - Operations",
-            "country": "United Arab Emirates",
-            "city": "Dubai",
-            "postedDate": "2023-07-03T00:00:00.000Z",
-            "createdAt": "2023-07-14T22:38:51.393Z",
-            "__v": 0 -->
-    <div class="container text-center pt-4 bg-">
-        <table id="myTable" class="display">
+
+    <div class="container shadow rounded text-center py-2">
+      <div class="container text-center p-0">
+        <div id="map"></div>
+      </div>
+
+      <div class="container pt-3">
+        <table id="jobsTable" class="display" style="width: 100%">
           <thead>
             <tr>
-              <th>title</th>
-              <th>country</th>
+              <th>Title</th>
+              <th>Location</th>
+              <th>Date Posted</th>
+              <th>Category</th>
+              <th>Division</th>
+              <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Ali</td>
-              <td>Baba</td>
-            </tr>
-            <tr>
-              <td>mad</td>
-              <td>mama</td>
-            </tr>
-          </tbody>
         </table>
+      </div>
     </div>
-    <footer class="py-3 my-4">
-      <p class="text-center text-muted border-top pt-3 mt-3">Made with ♥ By Abdullah Alabd</p>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="jobDetailModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="jobDetailModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="jobDetailModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div id="jobDetailModalDescription" class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <a
+              id="jobDetailModalApplyBtn"
+              class="btn btn-primary"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Apply</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pt-3 mt-3">
+      <p class="text-center  text-muted border-top pt-3 mt-3">
+        Made with ♥ By Abdullah Alabd
+      </p>
     </footer>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo94gLCe8z98P8Jj9NYHlCjnF-hTSF6YY&callback=initMap&v=weekly"
+      defer
+    ></script>
     <script src="jQuery-3.7.0/jquery-3.7.0.min.js"></script>
     <script src="Bootstrap-5-5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="DataTables-1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="DataTables-1.13.5/plugins/fuzzySearch.js"></script>
+    <script src="Moment.js/moment.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

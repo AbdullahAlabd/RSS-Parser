@@ -8,11 +8,12 @@ const jobPostingSchema = new Schema({
   },
   link: {
     type: String,
-    required: true,
-    unique: true // job link must be unique
+    required: true
   },
   guid: {
-    type: String
+    type: String,
+    required: true,
+    unique: true // job link must be unique
   },
   description: {
     // html string
@@ -45,5 +46,5 @@ const jobPostingSchema = new Schema({
     expires: 30 * 24 * 60 * 60 // 30 Days
   }
 });
-jobPostingSchema.index({ link: 1 });
+jobPostingSchema.index({ guid: 1 });
 module.exports = mongoose.model("JobPosting", jobPostingSchema);

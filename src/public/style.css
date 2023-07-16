@@ -1,0 +1,13 @@
+
+ #map {
+  width: 100%;
+  height: 350px;
+}
+
+/* handle modal overflow */
+.modal-body {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  word-wrap: break-word;
+}
+
