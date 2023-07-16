@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const errorHandlerMiddleware = require("./src/middleware/error-handler");
 const agenda = require("./src/worker-service/agenda");
 const path = require("path");
+const logger = require("./src/utils/logger");
 
 // routes
 const jobPostingRoute = require("./src/routes/job-posting-route");
@@ -30,7 +31,7 @@ process.on("SIGINT", graceful);
 async function start() {
   await connectDb(process.env.MONGODB_URI);
   app.listen(process.env.PORT, () => {
-    console.log(`Server is listening on port ${process.env.PORT}`);
+    logger.log("info", `Server is listening on port ${process.env.PORT}`);
   });
 }
 start();

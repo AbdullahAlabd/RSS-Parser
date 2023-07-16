@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
+const logger = require("../utils/logger");
 
 async function connect(url) {
   try {
     await mongoose.connect(url).then((data) => {
-      console.log(
+      logger.log("info",
         `Database server is connected on host ${data.connection.host}`
       );
     });
   } catch (error) {
-    console.log(error);
+    logger.log("error", error);
   }
 }
 
