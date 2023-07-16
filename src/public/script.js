@@ -6,57 +6,60 @@ const table = $("#jobsTable").DataTable({
     url: "http://localhost:5000/api/v1/jobs"
   },
   language: {
-    searchPlaceholder: "Title, Location, Category, .."
+    searchPlaceholder: "Title, Location, etc..."
   },
   fuzzySearch: true,
   columns: [
-    { data: "title", title: "Title" },
+    { data: "title" }, // title
     {
+      // location
       data: null,
-      title: "Location",
       render: function (data, type, full, meta) {
-        return (
-          (data.city ?? "") + (data.city ? ", " : "") + (data.country ?? "")
-        );
+        return getLocation(data);
       }
     },
     {
+      // Date Posted
       data: null,
-      title: "Date Posted",
       searchable: false,
       render: function (data, type, full, meta) {
         // If display or filter data is requested, format the date
         if (type === "display" || type === "filter") {
           return moment(data.postedDate).fromNow();
         }
-
         // Otherwise the data type requested (`type`) is type detection or
         // sorting data, for which we want to use the raw date, so just return
         // that, unaltered
         return data.postedDate;
       }
     },
-    { data: "category", title: "Category" },
+    { data: "category" }, // Category
     {
+      // Division
       data: null,
-      title: "Division",
       render: function (data, type, full, meta) {
         return data.division ?? "";
       }
     },
     {
+      // Actions
       data: null,
-      title: "Actions",
       searchable: false,
       orderable: false,
       render: function (data, type, full, meta) {
         return `
           <!-- Button trigger modal -->
-          <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-sm btn-info " data-bs-toggle="modal" data-bs-target="#jobDetailModal"">
+          <div class="btn-group btn-group-sm" role="group" aria-label="Actions">
+          <button type="button" class="btn btn-info detailBtn" data-bs-toggle="modal" data-bs-target="#jobDetailModal">
             Details
+          </button>
+          <button type="button"  class="btn btn-warning locateBtn" 
+          data-bs-toggle="tooltip" data-bs-placement="top" title="Locate on map.">
+          <i class="fa-solid fa-location-dot"></i>
           </button>          
-          <a class='btn btn-sm btn-primary' href="${data.link}" target="_blank" rel="noopener noreferrer">Apply</a>
+          <a class='btn btn-primary' href="${data.link}" target="_blank" rel="noopener noreferrer">
+          Apply
+          </a>
           </div>
           `;
       }
@@ -64,13 +67,19 @@ const table = $("#jobsTable").DataTable({
   ]
 });
 
-table.on("click", "button", function (e) {
+table.on("click", ".detailBtn", function (e) {
   const data = table.row(e.target.closest("tr")).data();
-
   $("#jobDetailModalLabel").text(data.title.trim());
-
   $("#jobDetailModalDescription").html(data.description.trim());
   $("#jobDetailModalApplyBtn").attr("href", data.link);
+});
+
+table.on("click", ".locateBtn", async (e) => {
+  const data = table.row(e.target.closest("tr")).data();
+  deleteMarkers();
+  await geocode({ address: getLocation(data) });
+  map.setZoom(4);
+  map.panTo(markers[0].position);
 });
 
 let idleTime = 0;
@@ -88,20 +97,22 @@ function timerIncrement() {
   }
 }
 // To avoid triggering search.dt event on sorting
-$("#jobsTable").on("order.dt", function () {
+table.on("order.dt", function () {
   table.off("search.dt");
   // your desired function here
   table.on("search.dt", function () {
     // Gets registered because order.dt is used by default on table initialization
-    $("#jobsTable").on("search.dt", function () {
-      console.log("Table search eee");
+    table.on("search.dt", function () {
       idleTime = 0;
     });
   });
 });
 
 const redrawMap = () => {
+  const egypt = { lat: 26.8171442, lng: 36.1730976 };
   deleteMarkers();
+  map.setZoom(2);
+  map.panTo(egypt);
   table
     .rows({ filter: "applied" })
     .every(function (rowIdx, tableLoop, rowLoop) {
@@ -114,14 +125,7 @@ const redrawMap = () => {
 };
 
 const getLocation = (data) => {
-  var location = "";
-  if (data.city) {
-    location += data.city;
-  }
-  if (data.country) {
-    location += (location.length ? ", " : "") + data.country;
-  }
-  return location;
+  return (data.city ?? "") + (data.city ? ", " : "") + (data.country ?? "");
 };
 
 let map;
@@ -139,20 +143,15 @@ function initMap() {
   deleteMarkers();
 }
 
-function geocode(request) {
-  geocoder
-    .geocode(request)
-    .then((result) => {
-      const { results } = result;
-      //map.setCenter(results[0].geometry.location);
-      addMarker(results[0].geometry.location, map);
-      //response.innerText = JSON.stringify(result, null, 2);
-      return results;
-    })
-    .catch((e) => {
-      alert("Geocode was not successful for the following reason: " + e);
-    });
-}
+const geocode = async (request) => {
+  try {
+    const results = (await geocoder.geocode(request)).results;
+    addMarker(results[0].geometry.location, map);
+    return results;
+  } catch (e) {
+    alert("Geocode was not successful for the following reason: " + e);
+  }
+};
 
 // Adds a marker to the map and push to the array.
 function addMarker(position) {

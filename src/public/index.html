@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RSS Parser</title>
     <link href="Bootstrap-5-5.3.0/css/bootstrap.min.css" rel="stylesheet" />
-    <link
-      href="DataTables-1.13.5/css/jquery.dataTables.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <link href="DataTables/datatables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/css/all.min.css" />
+    <link href="style.css" rel="stylesheet" />
   </head>
-
   <body>
     <!-- Navbar -->
     <header class="p-1 text-bg-dark">
@@ -27,33 +24,49 @@
               RSS-Parser
             </h1>
           </a>
-
           <ul
             class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
           >
             <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
             <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
           </ul>
         </div>
       </div>
     </header>
-
     <div class="container shadow rounded text-center py-2">
       <div class="container text-center p-0">
         <div id="map"></div>
       </div>
-
-      <div class="container pt-3">
-        <table id="jobsTable" class="display" style="width: 100%">
-          <thead>
+      <div class="container pt-3 overflow-x-auto">
+        <table
+          id="jobsTable"
+          class="table table-responsive"
+          style="width: 100%"
+        >
+          <caption hidden>
+            Job Postings
+          </caption>
+          <thead class="thead-light">
             <tr>
-              <th>Title</th>
-              <th>Location</th>
-              <th>Date Posted</th>
-              <th>Category</th>
-              <th>Division</th>
-              <th>Actions</th>
+              <th class="text-center">
+                <i class="fa-solid fa-briefcase"></i> Title
+              </th>
+              <th class="text-center">
+                <i class="fa-solid fa-location-dot"></i> Location
+              </th>
+              <th class="text-center">
+                <i class="fa-solid fa-calendar-days"></i> Posted
+              </th>
+              <th class="text-center">
+                <i class="fa-solid fa-building"></i> Category
+              </th>
+              <th class="text-center">
+                <i class="fa-solid fa-network-wired"></i> Division
+              </th>
+              <th class="text-center">
+                <i class="fa-solid fa-bolt"></i> Actions
+              </th>
             </tr>
           </thead>
         </table>
@@ -101,21 +114,21 @@
         </div>
       </div>
     </div>
-
     <footer class="pt-3 mt-3">
-      <p class="text-center  text-muted border-top pt-3 mt-3">
+      <p class="text-center text-muted border-top pt-3 mt-3">
         Made with ♥ By Abdullah Alabd
       </p>
     </footer>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo94gLCe8z98P8Jj9NYHlCjnF-hTSF6YY&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo94gLCe8z98P8Jj9NYHlCjnF-hTSF6YY&callback=initMap"
       defer
     ></script>
     <script src="jQuery-3.7.0/jquery-3.7.0.min.js"></script>
+    <script src="fontawesome-free-6.4.0-web/js/all.min.js"></script>
     <script src="Bootstrap-5-5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="DataTables-1.13.5/js/jquery.dataTables.min.js"></script>
-    <script src="DataTables-1.13.5/plugins/fuzzySearch.js"></script>
-    <script src="Moment.js/moment.min.js"></script>
+    <script src="DataTables/datatables.min.js"></script>
+    <script src="DataTables/plugins/fuzzySearch.js"></script>
+    <script src="Moment/moment.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
