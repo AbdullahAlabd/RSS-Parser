@@ -18,6 +18,7 @@ To be able to run the project on your system you should have:
  - [MongoDB ^6.0](https://www.mongodb.com/docs/manual/administration/install-community) - A cross-platform document-oriented database program.
  - [Git](https://git-scm.com/downloads) - A free and open-source distributed version control system.
 
+
 ### Installation
 To install the project on your system first open the terminal, then follow the given steps and execute the commands on your terminal.
  0. Make sure you have all the prerequisites listed above installed on your system.
@@ -32,6 +33,14 @@ To install the project on your system first open the terminal, then follow the g
  5. Update your credentials in config.env.
  6. Finally, run the app on localhost: ```node app.js``` or using Nodemon for easier development ```npm run dev```
  7. To avoid any issues with Google Maps api, It's preferred to disable any ad-blocking browser extensions on the web app home page.
+
+## How it works
+ - A background service running that polls RSS jobs every defined on config.env.
+ - If a polled job posting is not already in DB it gets stored.
+ - Front end client requests job postings data from the backend through ajax call on document initialization.
+ - Backend gets the data directly from database and returns it in json format.
+ - Front end clients formats data and handle searching, ordering, on the client side, for better UX.
+
 
 ## Author
 * **Abdullah Alabd** - *Initial work* - [AbdullahAlabd](https://github.com/AbdullahAlabd)
