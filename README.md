@@ -2,7 +2,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/AbdullahAlabd/RSS-Parser)
 
 
-Simple RSS job postings parser web application using Google Maps.
+Simple RSS job postings parser web application using Google Maps, build with JavaScript, NodeJs, and MongoDB.
 
 ![A Screenshot](https://i.imgur.com/mNXNnrU.png)
 
